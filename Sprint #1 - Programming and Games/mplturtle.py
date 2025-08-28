@@ -1,11 +1,19 @@
 import pylab as py
+import platform
+
+if 'BLAI' in platform.uname().node:
+    _figsize=(5,5)
+else:
+    _figsize=None
+
 
 class Turtle(object):
     
     def __init__(self):
         self.reset()
 
-    def reset(self,figsize=(10,10)):
+    def reset(self,figsize=None):
+        
         self.x=0
         self.y=0
         self.angle=0
@@ -19,7 +27,14 @@ class Turtle(object):
         self._reset=True   
         self.fig=None
         self.ax=None
-        self.figsize=figsize
+
+        if figsize:
+            self.figsize=figsize
+        elif _figsize:
+            self.figsize=_figsize
+        else:
+            self.figsize=(10,10)
+        
         self.data=[]
         self.texts=[]
         self.limits=[-100,100,-100,100]
@@ -33,7 +48,8 @@ class Turtle(object):
         ax.set_facecolor(self.facecolor)
 
         ax.clear()
-        ax.axis('equal')
+        ax.set_aspect('equal', adjustable='box')
+        #ax.axis('equal')
         ax.axis(self.limits)
 
         self.data=[]
