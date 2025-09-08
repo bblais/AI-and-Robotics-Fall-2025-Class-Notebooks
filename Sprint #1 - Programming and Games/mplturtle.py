@@ -1,6 +1,9 @@
 import pylab as py
 import platform
 
+__version__="0.0.2"
+print("Version ",__version__)
+
 if 'BLAI' in platform.uname().node:
     _figsize=(5,5)
 else:
@@ -49,7 +52,6 @@ class Turtle(object):
 
         ax.clear()
         ax.set_aspect('equal', adjustable='box')
-        #ax.axis('equal')
         ax.axis(self.limits)
 
         self.data=[]
@@ -71,11 +73,11 @@ class Turtle(object):
                          color=self.color,
                          linestyle='-',linewidth=self.pensize)
             self.data.append([
-                [self.x,self.x+dx],[self.y,self.y+dy],self.color,self.angle,self.pensize,
+                [self.x,self.x+dx],[self.y,self.y+dy],self.color,self.angle,self.pensize,None,
             ])
         else:
             self.data.append([
-                [self.x,self.x+dx],[self.y,self.y+dy],None,self.angle,self.pensize,
+                [self.x,self.x+dx],[self.y,self.y+dy],None,self.angle,self.pensize,None,
             ])
             
             
@@ -87,7 +89,7 @@ class Turtle(object):
     def adjust_axis(self):
 
         limits=self.ax.axis()
-        if self.x<limits[0] or self.x>limits[1] or self.y<limits[2] or self.y>limits[3]:
+        if self.x<=limits[0] or self.x>=limits[1] or self.y<=limits[2] or self.y>=limits[3]:
             limits=[2*_ for _ in limits]
             self.ax.axis(limits)
             self.limits=limits
@@ -111,11 +113,11 @@ class Turtle(object):
                          color=self.color,
                          linestyle='-',linewidth=self.pensize)
             self.data.append([
-                [self.x,x],[self.y,y],self.color,self.angle,self.pensize,
+                [self.x,x],[self.y,y],self.color,self.angle,self.pensize,None
             ])
         else:
             self.data.append([
-                [self.x,x],[self.y,y],None,self.angle,self.pensize,
+                [self.x,x],[self.y,y],None,self.angle,self.pensize,None,
             ])
             
             
@@ -130,7 +132,7 @@ class Turtle(object):
         self.angle=angle
         self.angle=self.angle % 360
         self.data.append([
-            [self.x,self.x],[self.y,self.y],None,self.angle,self.pensize,
+            [self.x,self.x],[self.y,self.y],None,self.angle,self.pensize,None,
         ])
 
     def home(self):
@@ -144,7 +146,7 @@ class Turtle(object):
         self.angle-=angle
         self.angle=self.angle % 360
         self.data.append([
-            [self.x,self.x],[self.y,self.y],None,self.angle,self.pensize,
+            [self.x,self.x],[self.y,self.y],None,self.angle,self.pensize,None,
         ])
         
     def left(self,angle):
@@ -164,6 +166,7 @@ class Turtle(object):
 
         for i in range(n):
             self.forward(L)
+            self.data[-1][-1]=10 # skip 10 steps here
 
             if radius>0:
                 self.left(a) 
@@ -304,17 +307,17 @@ def animate(delay=0.05,skip=1,figsize=(5,5)):
             ax = fig.add_subplot(111)
             ax.clear()
             ax.set_facecolor(_t.facecolor)
-            ax.axis('equal')
+            #ax.axis('equal')
             ax.axis(_t.limits)
             
             for x,y,t,k in _t.texts:
                 ax.text(x,y,t,**k)
 
-            for x,y,c,a,ps in _t.data[:i]:
+            for x,y,c,a,ps,skippy in _t.data[:i]:
                 if c is not None:
                     ax.plot(x,y,color=c,linestyle='-',linewidth=ps)
                 
-            x,y,c,a,ps = _t.data[i-1]            
+            x,y,c,a,ps,skippy = _t.data[i-1]            
             ax.plot([x[1]],[y[1]],'g',marker=(3, 0, a-90),markersize=20,)
             ax.plot([x[1]+2*py.cos(py.radians(a))],[y[1]+2*py.sin(py.radians(a))],'r.')
             py.show() 
@@ -327,7 +330,11 @@ def animate(delay=0.05,skip=1,figsize=(5,5)):
             if i==len(_t.data):
                 break
 
-            i+=skip
+            if skippy:
+                i+=skippy
+            else:
+                i+=skip
+                
             if i>len(_t.data):  # make sure to plot the last one
                 i=len(_t.data)
 
