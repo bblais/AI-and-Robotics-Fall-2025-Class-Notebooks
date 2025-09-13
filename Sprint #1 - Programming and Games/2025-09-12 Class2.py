@@ -137,3 +137,47 @@ def win_status(state,player):
 
     return moves
 
+
+# In[22]:
+
+
+state=Board(6,6)
+for row in range(6):
+    if row%2==0:
+        value=2
+    else:
+        value=1
+
+    for col in range(6):
+
+        state[row,col]=value
+
+        if value==1:
+            value=2
+        else:
+            value=1
+
+state
+
+
+# In[28]:
+
+
+state=Board(6,6)
+for location in range(36):
+    state[location]=(location+location//6%2+1)%2+1
+
+state
+
+
+# In[26]:
+
+
+location//6%2
+
+
+# In[ ]:
+
+
+
+
