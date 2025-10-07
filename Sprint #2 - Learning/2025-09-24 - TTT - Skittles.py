@@ -203,7 +203,7 @@ def skittles_after(status,player,info):
                 T[last_state][last_action]=0  # don't go below zero
 
 
-# In[28]:
+# In[14]:
 
 
 skittles_agent=Agent(skittles_move)
@@ -214,14 +214,14 @@ skittles_agent.learning=True
 
 # ## Running the Game
 
-# In[29]:
+# In[15]:
 
 
 g=Game()
 g.run(minimax_agent,skittles_agent)
 
 
-# In[17]:
+# In[16]:
 
 
 skittles_agent.T
@@ -234,7 +234,7 @@ skittles_agent.T
 # - epoch -- number of training games before testing
 # 
 
-# In[18]:
+# In[17]:
 
 
 epoch_number=200  # play 200 games, learning, and then test
@@ -245,7 +245,7 @@ total_number_of_games=epoch_number*N_train
 total_number_of_games
 
 
-# In[19]:
+# In[18]:
 
 
 iteration_count=0
@@ -255,7 +255,7 @@ percentage_stalemate=[]
 number_of_iterations=[]
 
 
-# In[20]:
+# In[19]:
 
 
 agent1=Agent(skittles_move)
@@ -269,13 +269,13 @@ agent2.post=skittles_after
 agent2.learning=True
 
 
-# In[21]:
+# In[20]:
 
 
 from tqdm import tqdm
 
 
-# In[22]:
+# In[21]:
 
 
 for i in tqdm(range(epoch_number)):
@@ -304,20 +304,20 @@ for i in tqdm(range(epoch_number)):
     number_of_iterations.append(iteration_count)
 
 
-# In[23]:
+# In[22]:
 
 
 SaveTable(agent1.T,"TTT Skittles Agent1.json")
 SaveTable(agent2.T,"TTT Skittles Agent2.json")
 
 
-# In[24]:
+# In[23]:
 
 
 from matplotlib import pyplot as plt
 
 
-# In[25]:
+# In[24]:
 
 
 plt.plot(number_of_iterations,percentage_won_player1,'-o',label="Player 1")

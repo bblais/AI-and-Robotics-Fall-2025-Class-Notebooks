@@ -199,8 +199,110 @@ g=Game()
 g.run(random_agent,random_agent)
 
 
+# In[31]:
+
+
+state=Board(4,5)
+state[0]=state[6]=state[12]=1
+board=Board(4,5)
+board.board=list(range(20))
+
+player=1
+for a,b,c in board.diags(3):
+    if state[a]==player and state[b]==player and state[c]==player:
+        print("win")
+
+
+# In[32]:
+
+
+for a,b,c in state.diags(3):
+    if a==player and b==player and c==player:
+        print("win")
+
+
+# In[33]:
+
+
+state=Board(4,5)
+state.show_locations()
+
+
+# In[35]:
+
+
+i=16
+player=0
+row,col=state.row(i),state.col(i)
+row,col
+
+state[row,col]
+
+
+
+# In[36]:
+
+
+def initial_state():
+    state=Board(3,3)
+    for i in [0,1,2]:
+        state[i]=1
+    for i in [6,7,8]:
+        state[i]=2
+
+    return state
+
+
+
+# In[39]:
+
+
+state=initial_state()
+state
+
+
+# In[41]:
+
+
+def show_state(state,player):
+    print(state)
+
+
+# In[42]:
+
+
+def update_state(state,player,move):
+    start,end=move
+
+    state[start]=0
+    state[end]=player
+
+    return state
+
+
+# In[43]:
+
+
+state=initial_state()
+show_state(state,1)
+
+
+# In[45]:
+
+
+state=update_state(state,1, [1,4])
+show_state(state,1)
+
+
+# In[46]:
+
+
+state.show_locations()
+
+
 # In[ ]:
 
 
-
+if state[start]==1 and state[start+5]==0:
+    moves.append( [start,start+5]  )
 
