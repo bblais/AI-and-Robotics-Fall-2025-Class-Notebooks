@@ -23,11 +23,41 @@ locations
 state
 
 
-# In[10]:
+# In[12]:
 
 
-for diag,diag_locations in zip(state.diags(7),locations.diags(7)):
-    print(diag,"   ",diag_locations)
+for diag,diag_locations in zip(state.diags(3),locations.diags(3)):
+    if diag_locations[0]==30 or diag_locations[-1]==30:
+        print(diag,"   ",diag_locations)
+
+
+# In[15]:
+
+
+player=1
+ball=3
+moves=[]
+for length in [2,3,4,5,6,7]:
+    for diag,diag_locations in zip(state.diags(length),locations.diags(length)):
+
+        if diag[0]==player+ball and all([d==player for d in diag[1:]]):
+            moves.append([diag_locations[0],diag_locations[-1]])
+
+    for diag,diag_locations in zip(state.rows(length),locations.rows(length)):
+
+        if diag[0]==player+ball and all([d==player for d in diag[1:]]):
+            moves.append([diag_locations[0],diag_locations[-1]])
+
+    for diag,diag_locations in zip(state.cols(length),locations.cols(length)):
+
+        if diag[0]==player+ball and all([d==player for d in diag[1:]]):
+            moves.append([diag_locations[0],diag_locations[-1]])
+
+
+# In[16]:
+
+
+moves
 
 
 # In[ ]:
