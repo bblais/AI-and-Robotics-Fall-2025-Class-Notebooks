@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[1]:
 
 
 from Game import *
@@ -14,14 +14,14 @@ from Game import *
 # 3. `update_state(state, player, move )` return the new state
 # 4. `win_status(state,player)` returns one of `"win"`,`"lose"`,`"stalemate"` or `None`
 
-# In[4]:
+# In[2]:
 
 
 def initial_state():
     return Board(3,3)
 
 
-# In[5]:
+# In[3]:
 
 
 def valid_moves(state,player):
@@ -36,7 +36,7 @@ def valid_moves(state,player):
 
 
 
-# In[6]:
+# In[4]:
 
 
 def update_state(state,player,move):
@@ -46,7 +46,7 @@ def update_state(state,player,move):
     return new_state
 
 
-# In[7]:
+# In[5]:
 
 
 def win_status(state,player):
@@ -82,7 +82,7 @@ def win_status(state,player):
     return None
 
 
-# In[8]:
+# In[6]:
 
 
 def human_move(state,player):
@@ -104,14 +104,14 @@ def human_move(state,player):
 human_agent=Agent(human_move)
 
 
-# In[9]:
+# In[7]:
 
 
 def show_state(state,player):
     print(state)
 
 
-# In[10]:
+# In[8]:
 
 
 def random_move(state,player):
@@ -119,7 +119,7 @@ def random_move(state,player):
 random_agent=Agent(random_move)
 
 
-# In[11]:
+# In[9]:
 
 
 from Game.minimax import *
@@ -131,7 +131,7 @@ minimax_agent=Agent(minimax_move)
 
 # ![image.png](attachment:79374413-5431-4bd6-b94e-87abab72db5e.png)
 
-# In[12]:
+# In[10]:
 
 
 state=Board(3,3)
@@ -142,13 +142,13 @@ for loc in [2,3,6]:
 state
 
 
-# In[13]:
+# In[11]:
 
 
 minimax_values(state,player=1)
 
 
-# In[14]:
+# In[12]:
 
 
 g=Game()
@@ -157,7 +157,7 @@ g.run(minimax_agent,random_agent)
 
 # ## Skittle Agent
 
-# In[15]:
+# In[13]:
 
 
 def skittles_move(state,player,info):
@@ -201,7 +201,7 @@ def skittles_after(status,player,info):
                 T[last_state][last_action]=0  # don't go below zero
 
 
-# In[16]:
+# In[14]:
 
 
 skittles_agent=Agent(skittles_move)
@@ -212,11 +212,26 @@ skittles_agent.learning=True
 
 # ## Running the Game
 
-# In[17]:
+# In[22]:
 
 
 g=Game()
+g.display=False
+g.save_states=True
 g.run(minimax_agent,skittles_agent)
+len(g.games[0]['states'])
+
+
+# In[21]:
+
+
+len(g.games[0]['states'])
+
+
+# In[18]:
+
+
+len(g.games['states'])
 
 
 # In[18]:

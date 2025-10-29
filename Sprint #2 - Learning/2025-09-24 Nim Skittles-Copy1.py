@@ -31,14 +31,14 @@
 from Game import *
 
 
-# In[2]:
+# In[9]:
 
 
 def initial_state(N=21):
     return N
 
 
-# In[3]:
+# In[10]:
 
 
 def show_state(state,player):
@@ -46,7 +46,7 @@ def show_state(state,player):
     print(f"Sticks remaining: {state}")
 
 
-# In[4]:
+# In[11]:
 
 
 def valid_moves(state,player):
@@ -61,7 +61,7 @@ def valid_moves(state,player):
 
 
 
-# In[5]:
+# In[12]:
 
 
 def update_state(state,player,move):
@@ -69,7 +69,7 @@ def update_state(state,player,move):
     return new_state
 
 
-# In[6]:
+# In[13]:
 
 
 def win_status(state,player):
@@ -91,7 +91,7 @@ def win_status(state,player):
 
 # ## Agents
 
-# In[7]:
+# In[14]:
 
 
 def human_move(state,player):
@@ -104,7 +104,7 @@ def human_move(state,player):
 human_agent=Agent(human_move)
 
 
-# In[8]:
+# In[15]:
 
 
 def random_move(state,player):
@@ -113,7 +113,7 @@ def random_move(state,player):
 random_agent=Agent(random_move)
 
 
-# In[9]:
+# In[16]:
 
 
 from Game.minimax import *
@@ -125,7 +125,7 @@ minimax_agent=Agent(minimax_move)
 
 # ## Skittle Agent
 
-# In[10]:
+# In[17]:
 
 
 def skittles_move(state,player,info):
@@ -169,7 +169,7 @@ def skittles_after(status,player,info):
                 T[last_state][last_action]=0  # don't go below zero
 
 
-# In[20]:
+# In[21]:
 
 
 skittles_agent=Agent(skittles_move)
@@ -180,14 +180,14 @@ skittles_agent.learning=True
 
 # ## Running the Game
 
-# In[21]:
+# In[22]:
 
 
-g=Game(number_of_games=90,N=9)
+g=Game(N=9)
 g.run(minimax_agent,skittles_agent)
 
 
-# In[22]:
+# In[23]:
 
 
 skittles_agent.T
