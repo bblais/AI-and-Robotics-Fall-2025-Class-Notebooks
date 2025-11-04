@@ -58,11 +58,13 @@ while robot.step(timestep) != -1:
     wait(.5)
     close_gripper()
 
-    motors['motor 1'].setPosition(1.55)
-    motors['motor 2'].setPosition(1.12)
-    open_gripper()
+    # open_gripper()
     wait(1.5)
-
+    motors['motor 3'].setPosition(1.8)
+    motors['motor 4'].setPosition(-1.5)
+    wait(1.5)
+    motors['motor 1'].setPosition(1.5)
+    motors['motor 2'].setPosition(1.8)
 
     # Read the sensors:
     # Enter here functions to read sensor data, like:

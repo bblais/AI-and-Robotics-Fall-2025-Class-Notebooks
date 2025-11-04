@@ -147,7 +147,7 @@ P-Rob3 {
   translation -5.25 0.8 0.77
   rotation 0 0 1 -1.5707953071795862
   name "player1"
-  controller "p-rob3"
+  controller "my_controller"
 }
 P-Rob3 {
   translation -5.25 -0.8 0.77
@@ -171,14 +171,14 @@ DEF BLUE_PIECE_1 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_1"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -195,14 +195,14 @@ DEF BLUE_PIECE_2 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_2"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -219,14 +219,14 @@ DEF BLUE_PIECE_3 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_3"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -243,14 +243,14 @@ DEF BLUE_PIECE_4 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_4"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -267,14 +267,14 @@ DEF BLUE_PIECE_5 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_5"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -291,14 +291,14 @@ DEF BLUE_PIECE_6 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_6"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -315,14 +315,14 @@ DEF BLUE_PIECE_7 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_7"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -339,14 +339,14 @@ DEF BLUE_PIECE_8 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_8"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -363,14 +363,14 @@ DEF BLUE_PIECE_9 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_9"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -387,14 +387,14 @@ DEF BLUE_PIECE_10 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "blue_piece_10"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -411,14 +411,14 @@ DEF RED_PIECE_1 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_1"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -435,14 +435,14 @@ DEF RED_PIECE_2 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_2"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -459,14 +459,14 @@ DEF RED_PIECE_3 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_3"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -483,14 +483,14 @@ DEF RED_PIECE_4 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_4"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -507,14 +507,14 @@ DEF RED_PIECE_5 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_5"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -531,14 +531,14 @@ DEF RED_PIECE_6 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_6"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -555,14 +555,14 @@ DEF RED_PIECE_7 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_7"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -579,14 +579,14 @@ DEF RED_PIECE_8 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_8"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -603,14 +603,14 @@ DEF RED_PIECE_9 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_9"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {
@@ -627,14 +627,14 @@ DEF RED_PIECE_10 Solid {
         metalness 0.3
       }
       geometry Cylinder {
-        height 0.05
+        height 0.25
         radius 0.03
       }
     }
   ]
   name "red_piece_10"
   boundingObject Cylinder {
-    height 0.05
+    height 0.25
     radius 0.03
   }
   physics Physics {

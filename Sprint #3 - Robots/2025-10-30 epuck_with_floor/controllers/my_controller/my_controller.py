@@ -47,6 +47,14 @@ gs1.enable(timestep)
 gs2 = robot.getDevice("gs2")
 gs2.enable(timestep)
 
+sensors=[]
+for i in range(8):  # from 0 to 7
+    sensor_name = "ps" + str(i)
+    sensor = robot.getDevice(sensor_name)
+    sensor.enable(timestep)
+    sensors.append(sensor)
+
+
 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
