@@ -3,12 +3,9 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/ThreadMetalPlate.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/tables/protos/Table.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/OldSteel.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/GalvanizedMetal.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/fp_robotics/p-rob3/protos/P-Rob3.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/fp_robotics/p-rob3/protos/P-Grip.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/drinks/protos/Can.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Door.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/GlossyPaint.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/obstacles/protos/OilBarrel.proto"
@@ -46,8 +43,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.85
-  orientation -0.24095660425689994 0.10107445892086125 0.9652584465410489 2.5061054246345185
-  position -2.0565962766410335 -1.2036172974231785 3.1345814795051448
+  orientation -0.26223376188802977 0.08175115034965656 0.9615353366062841 2.6831906887325108
+  position -1.8012160229563672 -1.6370622302717153 2.870223115553564
 }
 TexturedBackground {
   texture "empty_office"
@@ -78,13 +75,13 @@ DEF GAME_TABLE Solid {
     DEF TABLE_SURFACE Shape {
       appearance PBRAppearance {
         baseColor 0.8 0.8 0.8
-        metalness 0
-        roughness 0.5
         baseColorMap ImageTexture {
           url [
             "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/textures/checkered_marble.jpg"
           ]
         }
+        roughness 0.5
+        metalness 0
       }
       geometry Box {
         size 1.2 1.2 0.05
@@ -170,8 +167,8 @@ DEF BLUE_PIECE_1 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -194,8 +191,8 @@ DEF BLUE_PIECE_2 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -218,8 +215,8 @@ DEF BLUE_PIECE_3 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -242,8 +239,8 @@ DEF BLUE_PIECE_4 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -266,8 +263,8 @@ DEF BLUE_PIECE_5 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -290,8 +287,8 @@ DEF BLUE_PIECE_6 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -309,13 +306,13 @@ DEF BLUE_PIECE_6 Solid {
   }
 }
 DEF BLUE_PIECE_7 Solid {
-  translation -5.0 0.5 0.795
+  translation -5 0.5 0.795
   children [
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -338,8 +335,8 @@ DEF BLUE_PIECE_8 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -362,8 +359,8 @@ DEF BLUE_PIECE_9 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -386,8 +383,8 @@ DEF BLUE_PIECE_10 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -410,8 +407,8 @@ DEF RED_PIECE_1 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -434,8 +431,8 @@ DEF RED_PIECE_2 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -458,8 +455,8 @@ DEF RED_PIECE_3 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -482,8 +479,8 @@ DEF RED_PIECE_4 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -506,8 +503,8 @@ DEF RED_PIECE_5 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -530,8 +527,8 @@ DEF RED_PIECE_6 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -549,13 +546,13 @@ DEF RED_PIECE_6 Solid {
   }
 }
 DEF RED_PIECE_7 Solid {
-  translation -5.0 -0.5 0.795
+  translation -5 -0.5 0.795
   children [
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -578,8 +575,8 @@ DEF RED_PIECE_8 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -602,8 +599,8 @@ DEF RED_PIECE_9 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
@@ -626,8 +623,8 @@ DEF RED_PIECE_10 Solid {
     Shape {
       appearance PBRAppearance {
         baseColor 1 0 0
-        metalness 0.3
         roughness 0.7
+        metalness 0.3
       }
       geometry Cylinder {
         height 0.05
