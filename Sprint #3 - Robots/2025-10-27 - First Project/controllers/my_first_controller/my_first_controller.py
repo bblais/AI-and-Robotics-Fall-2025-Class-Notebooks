@@ -16,8 +16,23 @@ timestep = int(robot.getBasicTimeStep())
 #  ds = robot.getDevice('dsname')
 #  ds.enable(timestep)
 
+# Get number of devices
+num_devices = robot.getNumberOfDevices()
+
+print(f"Total devices: {num_devices}\n")
+
+# List all devices
+for i in range(num_devices):
+    device = robot.getDeviceByIndex(i)
+    print(f"Device {i}: {device.getName()} (Type: {device.getNodeType()})")
+
+
 left_motor = robot.getDevice("left wheel motor")
 right_motor = robot.getDevice("right wheel motor")
+
+camera=robot.getDevice("overhead_camera")
+camera.enable(timestep)
+
 
 left_motor.setPosition(float("inf"))
 right_motor.setPosition(float("inf"))

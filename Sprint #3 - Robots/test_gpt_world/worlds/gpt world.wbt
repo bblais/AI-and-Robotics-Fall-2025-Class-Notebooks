@@ -1,0 +1,603 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/fp_robotics/p-rob3/protos/PRob3.proto"
+
+WorldInfo {
+  info [
+    "P-Rob 3 board game world"
+  ]
+  title "P-Rob 3 Board Game"
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.5 0.5 0.7071 1.9
+  position 0 0 3.5
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+}
+DEF GAME_TABLE Solid {
+  translation 0 0 0.4
+  children [
+    DEF TABLE_SURFACE Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        metalness 0
+        roughness 0.5
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/checkered_marble.jpg"
+          ]
+        }
+      }
+      geometry Box {
+        size 1.2 1.2 0.05
+      }
+    }
+    DEF TABLE_LEG1 Pose {
+      translation 0.5 0.5 -0.4
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.3 0.3
+            metalness 0.5
+            roughness 0.5
+          }
+          geometry Cylinder {
+            height 0.8
+            radius 0.03
+          }
+        }
+      ]
+    }
+    DEF TABLE_LEG2 Pose {
+      translation -0.5 0.5 -0.4
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.3 0.3
+            metalness 0.5
+            roughness 0.5
+          }
+          geometry Cylinder {
+            height 0.8
+            radius 0.03
+          }
+        }
+      ]
+    }
+    DEF TABLE_LEG3 Pose {
+      translation 0.5 -0.5 -0.4
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.3 0.3
+            metalness 0.5
+            roughness 0.5
+          }
+          geometry Cylinder {
+            height 0.8
+            radius 0.03
+          }
+        }
+      ]
+    }
+    DEF TABLE_LEG4 Pose {
+      translation -0.5 -0.5 -0.4
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.3 0.3
+            metalness 0.5
+            roughness 0.5
+          }
+          geometry Cylinder {
+            height 0.8
+            radius 0.03
+          }
+        }
+      ]
+    }
+  ]
+  name "game_table"
+  boundingObject USE TABLE_SURFACE
+}
+DEF ROBOT_PLAYER1 PRob3 {
+  translation 0 0.8 0
+  rotation 0 0 1 -1.5708
+  name "player1"
+  controller "<none>"
+}
+DEF ROBOT_PLAYER2 PRob3 {
+  translation 0 -0.8 0
+  rotation 0 0 1 1.5708
+  name "player2"
+  controller "<none>"
+}
+DEF BLUE_PIECE_1 Solid {
+  translation -0.45 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_1"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_2 Solid {
+  translation -0.35 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_2"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_3 Solid {
+  translation -0.25 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_3"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_4 Solid {
+  translation -0.15 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_4"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_5 Solid {
+  translation -0.05 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_5"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_6 Solid {
+  translation 0.05 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_6"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_7 Solid {
+  translation 0.15 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_7"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_8 Solid {
+  translation 0.25 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_8"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_9 Solid {
+  translation 0.35 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_9"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF BLUE_PIECE_10 Solid {
+  translation 0.45 0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "blue_piece_10"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_1 Solid {
+  translation -0.45 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_1"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_2 Solid {
+  translation -0.35 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_2"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_3 Solid {
+  translation -0.25 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_3"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_4 Solid {
+  translation -0.15 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_4"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_5 Solid {
+  translation -0.05 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_5"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_6 Solid {
+  translation 0.05 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_6"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_7 Solid {
+  translation 0.15 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_7"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_8 Solid {
+  translation 0.25 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_8"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_9 Solid {
+  translation 0.35 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_9"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}
+DEF RED_PIECE_10 Solid {
+  translation 0.45 -0.5 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0.3
+        roughness 0.7
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.03
+      }
+    }
+  ]
+  name "red_piece_10"
+  boundingObject Cylinder {
+    height 0.05
+    radius 0.03
+  }
+  physics Physics {
+    density 500
+  }
+}

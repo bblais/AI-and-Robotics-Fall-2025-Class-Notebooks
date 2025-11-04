@@ -8,3 +8,4 @@ orthographicViewHeight: 1
 textFiles: 0 "../../../../../../../Users/bblais/Documents/Git/AI-and-Robotics-Fall-2025-Class-Notebooks/Sprint #3 - Robots/2025-10-27 - First Project/controllers/my_first_controller/my_first_controller.py"
 consoles: Console:All:All
 renderingDevicePerspectives: e-puck:camera;1;1;0;0
+renderingDevicePerspectives: e-puck:overhead_camera;1;1.025;0.0195228;0.163102

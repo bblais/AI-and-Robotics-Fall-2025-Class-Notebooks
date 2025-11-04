@@ -5,6 +5,6 @@ sceneTreePerspectives: 000000ff00000001000000030000001e000002ca000000fa010000000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 0 "controllers/my_drone_controller/my_drone_controller.py"
+textFiles: 0 "../../../../../../../Users/bblais/Documents/Git/AI-and-Robotics-Fall-2025-Class-Notebooks/Sprint #3 - Robots/2025-10-28 drone/controllers/my_drone_controller/my_drone_controller.py"
 consoles: Console:All:All
 renderingDevicePerspectives: Mavic 2 PRO:camera;1;1;0;0
