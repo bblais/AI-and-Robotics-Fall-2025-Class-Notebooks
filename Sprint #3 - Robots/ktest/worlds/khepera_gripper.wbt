@@ -30,21 +30,19 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.28410798382228447 0.279496381528102 0.9171501655896565 1.6734745425627227
-  position 0.152260947465085 -2.179791650562045 1.4182435814128178
+  orientation -0.2445575255936801 0.16100240689056047 0.956174587432098 2.0179617097917695
+  position 1.0003698776592556 -2.584727837414799 1.5575696740961422
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
-  translation 0.120049 -0.0717654 -2.26951e-18
   rotation 0 1 0 4.692820414042842e-06
   floorSize 1.5 1.5
 }
 DEF RED_STICK Solid {
-  translation -0.256793 -0.452234 0.0300022
-  rotation -1.1787095735033249e-11 1 4.892081418304912e-11 4.693215650486149e-06
+  translation -0.368076 -0.373756 0.03
   children [
     Pose {
       rotation 1 0 0 3.14159
@@ -72,16 +70,102 @@ DEF RED_STICK Solid {
     density 100
   }
 }
-DEF BLUE_STICK Solid {
-  translation -0.258753 0.29773 0.0300022
-  rotation -5.689602718363892e-11 1 -8.726666660456029e-11 4.693215650498397e-06
+DEF RED_STICK Solid {
+  translation -0.123931 -0.360591 0.03
   children [
     Pose {
       rotation 1 0 0 3.14159
       children [
         DEF STICK_SHAPE Shape {
           appearance PBRAppearance {
-            baseColor 0.0420081 0.0878462 0.932082
+            baseColor 1 0.155604 0.246125
+            roughness 0.783569247
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.06
+            radius 0.008
+          }
+        }
+      ]
+    }
+  ]
+  name "red stick(1)"
+  contactMaterial "stick"
+  boundingObject Box {
+    size 0.013 0.013 0.06
+  }
+  physics Physics {
+    density 100
+  }
+}
+DEF RED_STICK Solid {
+  translation 0.126936 -0.363571 0.03
+  children [
+    Pose {
+      rotation 1 0 0 3.14159
+      children [
+        DEF STICK_SHAPE Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.155604 0.246125
+            roughness 0.783569247
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.06
+            radius 0.008
+          }
+        }
+      ]
+    }
+  ]
+  name "red stick(2)"
+  contactMaterial "stick"
+  boundingObject Box {
+    size 0.013 0.013 0.06
+  }
+  physics Physics {
+    density 100
+  }
+}
+DEF RED_STICK Solid {
+  translation 0.370534 -0.361395 0.03
+  children [
+    Pose {
+      rotation 1 0 0 3.14159
+      children [
+        DEF STICK_SHAPE Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.155604 0.246125
+            roughness 0.783569247
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.06
+            radius 0.008
+          }
+        }
+      ]
+    }
+  ]
+  name "red stick(3)"
+  contactMaterial "stick"
+  boundingObject Box {
+    size 0.013 0.013 0.06
+  }
+  physics Physics {
+    density 100
+  }
+}
+DEF BLUE_STICK Solid {
+  translation -0.365309 0.35577 0.03
+  children [
+    Pose {
+      rotation 1 0 0 3.14159
+      children [
+        DEF STICK_SHAPE Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.155604 0.246125
             roughness 0.783569247
             metalness 0
           }
@@ -103,15 +187,13 @@ DEF BLUE_STICK Solid {
   }
 }
 Khepera1 {
-  translation -0.4616415616995192 -0.6700400256515016 5.190369819616306e-06
-  rotation -0.00021289353198474477 -0.9999813371713144 -0.0061057338145161354 0.07029996966885257
+  translation -0.587666 -0.615954 2.59962e-14
   name "khepera"
   controller "my_controller"
-  supervisor TRUE
   extensionSlot [
     DEF LIFT_HINGE_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position -1.3962387701878292
+        position -1.4
         axis 0 1 0
         anchor -0.01 0 0.022
       }
@@ -122,11 +204,10 @@ Khepera1 {
       ]
       endPoint Solid {
         translation -0.01 0 0.022
-        rotation 0.705757186622879 -0.7057571862274233 -0.06175425182535036 3.0182403762048726
+        rotation 0.705814842414855 -0.7058148424148553 -0.06042198650976582 3.0208949999999994
         children [
           DEF RIGHT_GRIP SliderJoint {
             jointParameters JointParameters {
-              position 0.02889224845948168
               axis 1 0 0
             }
             device [
@@ -138,7 +219,7 @@ Khepera1 {
               }
             ]
             endPoint Solid {
-              translation 0.02889224845948168 0 -0.048
+              translation 0 0 -0.048
               rotation 0 1 0 1.5708
               children [
                 Shape {
@@ -198,7 +279,6 @@ Khepera1 {
           }
           DEF LEFT_GRIP SliderJoint {
             jointParameters JointParameters {
-              position 0.028892248248752802
               axis -1 0 0
             }
             device [
@@ -210,7 +290,7 @@ Khepera1 {
               }
             ]
             endPoint Solid {
-              translation -0.028892248248752802 0 -0.048
+              translation 0 0 -0.048
               rotation 0 1 0 -1.5708
               children [
                 Shape {
@@ -331,7 +411,7 @@ Khepera1 {
     }
     Camera {
       translation -0.01 0 0.035
-      rotation 1 0 0 0
+      rotation 0.5773502691896258 -0.5773502691896258 -0.5773502691896258 2.094395
       children [
         Shape {
           appearance PBRAppearance {

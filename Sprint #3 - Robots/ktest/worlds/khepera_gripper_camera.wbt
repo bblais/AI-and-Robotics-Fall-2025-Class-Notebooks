@@ -30,37 +30,29 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.28410798382228447 0.279496381528102 0.9171501655896565 1.6734745425627227
-  position 0.152260947465085 -2.179791650562045 1.4182435814128178
+  orientation -0.24084314302152665 0.1312012303743657 0.9616552488328471 2.1764838434326195
+  position 0.231127241299444 -0.2713428116240333 0.2116201995728304
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
-  translation 0.120049 -0.0717654 -2.26951e-18
-  rotation 0 1 0 4.692820414042842e-06
-  floorSize 1.5 1.5
+  floorSize 2 2
 }
 DEF RED_STICK Solid {
-  translation -0.256793 -0.452234 0.0300022
-  rotation -1.1787095735033249e-11 1 4.892081418304912e-11 4.693215650486149e-06
+  translation 0.08 0 0.03
   children [
-    Pose {
-      rotation 1 0 0 3.14159
-      children [
-        DEF STICK_SHAPE Shape {
-          appearance PBRAppearance {
-            baseColor 1 0.155604 0.246125
-            roughness 0.783569247
-            metalness 0
-          }
-          geometry Cylinder {
-            height 0.06
-            radius 0.008
-          }
-        }
-      ]
+    DEF STICK_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.155604 0.246125
+        roughness 0.783569247
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.06
+        radius 0.008
+      }
     }
   ]
   name "red stick"
@@ -72,46 +64,14 @@ DEF RED_STICK Solid {
     density 100
   }
 }
-DEF BLUE_STICK Solid {
-  translation -0.258753 0.29773 0.0300022
-  rotation -5.689602718363892e-11 1 -8.726666660456029e-11 4.693215650498397e-06
-  children [
-    Pose {
-      rotation 1 0 0 3.14159
-      children [
-        DEF STICK_SHAPE Shape {
-          appearance PBRAppearance {
-            baseColor 0.0420081 0.0878462 0.932082
-            roughness 0.783569247
-            metalness 0
-          }
-          geometry Cylinder {
-            height 0.06
-            radius 0.008
-          }
-        }
-      ]
-    }
-  ]
-  name "blue stick"
-  contactMaterial "stick"
-  boundingObject Box {
-    size 0.013 0.013 0.06
-  }
-  physics Physics {
-    density 100
-  }
-}
 Khepera1 {
-  translation -0.4616415616995192 -0.6700400256515016 5.190369819616306e-06
-  rotation -0.00021289353198474477 -0.9999813371713144 -0.0061057338145161354 0.07029996966885257
-  name "khepera"
-  controller "my_controller"
-  supervisor TRUE
+  translation 0.0245671 0 0.0045528
+  name "khepera camera"
+  controller "khepera_gripper"
   extensionSlot [
     DEF LIFT_HINGE_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position -1.3962387701878292
+        position -1.4
         axis 0 1 0
         anchor -0.01 0 0.022
       }
@@ -122,11 +82,10 @@ Khepera1 {
       ]
       endPoint Solid {
         translation -0.01 0 0.022
-        rotation 0.705757186622879 -0.7057571862274233 -0.06175425182535036 3.0182403762048726
+        rotation 0.7058148424148551 -0.7058148424148553 -0.06042198650976584 3.020895
         children [
           DEF RIGHT_GRIP SliderJoint {
             jointParameters JointParameters {
-              position 0.02889224845948168
               axis 1 0 0
             }
             device [
@@ -138,7 +97,7 @@ Khepera1 {
               }
             ]
             endPoint Solid {
-              translation 0.02889224845948168 0 -0.048
+              translation 0 0 -0.048
               rotation 0 1 0 1.5708
               children [
                 Shape {
@@ -198,7 +157,6 @@ Khepera1 {
           }
           DEF LEFT_GRIP SliderJoint {
             jointParameters JointParameters {
-              position 0.028892248248752802
               axis -1 0 0
             }
             device [
@@ -210,7 +168,7 @@ Khepera1 {
               }
             ]
             endPoint Solid {
-              translation -0.028892248248752802 0 -0.048
+              translation 0 0 -0.048
               rotation 0 1 0 -1.5708
               children [
                 Shape {
@@ -331,7 +289,7 @@ Khepera1 {
     }
     Camera {
       translation -0.01 0 0.035
-      rotation 1 0 0 0
+      rotation -0.999759341318827 -0.016153505514822745 -0.014843305067519018 -5.307179586466759e-06
       children [
         Shape {
           appearance PBRAppearance {
@@ -340,12 +298,12 @@ Khepera1 {
             metalness 0
           }
           geometry DEF CAMERA Box {
-            size 0.03 0.02 0.03
+            size 0.03 0.03 0.02
           }
         }
       ]
       boundingObject DEF CAMERA Box {
-        size 0.03 0.02 0.03
+        size 0.03 0.03 0.02
       }
       physics Physics {
         density -1

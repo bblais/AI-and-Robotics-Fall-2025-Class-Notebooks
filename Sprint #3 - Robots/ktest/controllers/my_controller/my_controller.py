@@ -6,7 +6,7 @@ CLOSED_GRIP = 0.005
 
 def reset_home():
     robot_node = robot.getSelf()
-    robot_node.getField("translation").setSFVec3f([-.5, -.67, 0])
+    robot_node.getField("translation").setSFVec3f([-.6, -.6, 0])
     robot_node.getField("rotation").setSFRotation([0, 0, 1, 0])  # No rotation
     
 robot = Supervisor()
@@ -105,8 +105,7 @@ while robot.step(TIME_STEP) != -1:
     stop(500) # ms
 
 
-    left(600) # ms
-    forward(2000) # ms
+    left(400) # ms
 
     close_grip()
     
