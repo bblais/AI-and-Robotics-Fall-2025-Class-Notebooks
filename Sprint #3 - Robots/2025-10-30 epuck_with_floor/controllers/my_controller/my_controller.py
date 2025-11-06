@@ -4,6 +4,24 @@
 #  from controller import Robot, Motor, DistanceSensor
 from controller import Robot
 
+
+def wait(sec):
+    start_time = robot.getTime()
+    while start_time + sec > robot.getTime():
+        val=robot.step(timestep)
+        if val==-1:
+            return -1
+
+def turn_right():
+    left_motor.setVelocity(3.28)
+    right_motor.setVelocity(-3.28)
+    wait(0.5)
+
+
+
+
+
+
 # create the Robot instance.
 robot = Robot()
 

@@ -9,15 +9,17 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2398698445239827 0.003300244679703396 -0.9707994468854493 2.96565158641289
-  position 0.5303391753638793 0.5342225807635357 0.27329629919818754
-  follow "e-puck"
+  orientation 0.5190678811423349 -0.011997742589877177 -0.8546488102952896 3.112451860493796
+  position 1.2928567509098157 0.07550896798211268 1.806939089027776
+  follow "rectangle arena"
+  followType "Mounted Shot"
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+  translation 0.331872 0.0209442 -8.01804e-15
   rotation 0 0 1 -1.5707953071795862
   floorSize 1.2 1.8
   floorTileSize 1.2 1.8
@@ -32,9 +34,103 @@ RectangleArena {
   }
 }
 DEF E_PUCK E-puck {
-  translation 0 0.44 0
-  rotation 0 0 1 6.28319
-  controller "my_controller"
+  hidden translation_1 0 0.025999999999999912 0.02
+  hidden rotation_1 0 -1 0 0.7181741036624215
+  hidden translation_2 0 -0.025999999999999825 0.02
+  hidden rotation_2 0 -1 0 0.7181741039534209
+  translation 0.48895975800943775 0.4400023009314257 -6.394171030108496e-05
+  rotation 3.837765353566296e-06 -0.9999949724113336 0.0031709836530127863 0.0014352092629637185
+  controller "avoid"
+  window "botstudio"
+  camera_width 40
+  camera_height 1
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF E_PUCK E-puck {
+  hidden rotation_1 0 -1 0 0.7181741036624215
+  hidden rotation_2 0 -1 0 0.7181741039534209
+  translation 0.328009 -0.112156 0.0999361
+  rotation 3.837765353566296e-06 -0.9999949724113336 0.0031709836530127863 0.0014352092629637185
+  name "e-puck(1)"
+  controller "avoid"
+  window "botstudio"
+  camera_width 40
+  camera_height 1
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF E_PUCK E-puck {
+  hidden rotation_1 0 -1 0 0.7181741036624215
+  hidden rotation_2 0 -1 0 0.7181741039534209
+  translation 0.129901 0.0916214 0.0999361
+  rotation 3.837765353566296e-06 -0.9999949724113336 0.0031709836530127863 0.0014352092629637185
+  name "e-puck(2)"
+  controller "avoid"
+  window "botstudio"
+  camera_width 40
+  camera_height 1
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF E_PUCK E-puck {
+  hidden rotation_1 0 -1 0 0.7181741036624215
+  hidden rotation_2 0 -1 0 0.7181741039534209
+  translation 0.529436 0.0241797 0.0999361
+  rotation 3.837765353566296e-06 -0.9999949724113336 0.0031709836530127863 0.0014352092629637185
+  name "e-puck(3)"
+  controller "avoid"
+  window "botstudio"
+  camera_width 40
+  camera_height 1
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF E_PUCK E-puck {
+  hidden rotation_1 0 -1 0 0.7181741036624215
+  hidden rotation_2 0 -1 0 0.7181741039534209
+  translation 0.258465 0.189634 0.0999361
+  rotation 3.837765353566296e-06 -0.9999949724113336 0.0031709836530127863 0.0014352092629637185
+  name "e-puck(4)"
+  controller "avoid"
+  window "botstudio"
+  camera_width 40
+  camera_height 1
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF E_PUCK E-puck {
+  hidden rotation_1 0 -1 0 0.7181741036624215
+  hidden rotation_2 0 -1 0 0.7181741039534209
+  translation 0.488175 0.224357 0.0999361
+  rotation 3.837765353566296e-06 -0.9999949724113336 0.0031709836530127863 0.0014352092629637185
+  name "e-puck(5)"
+  controller "avoid"
+  window "botstudio"
+  camera_width 40
+  camera_height 1
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF E_PUCK E-puck {
+  hidden rotation_1 0 -1 0 0.7181741036624215
+  hidden rotation_2 0 -1 0 0.7181741039534209
+  translation 0.682821 -0.202186 0.0999361
+  rotation 3.837765353566296e-06 -0.9999949724113336 0.0031709836530127863 0.0014352092629637185
+  name "e-puck(6)"
+  controller "avoid"
   window "botstudio"
   camera_width 40
   camera_height 1
