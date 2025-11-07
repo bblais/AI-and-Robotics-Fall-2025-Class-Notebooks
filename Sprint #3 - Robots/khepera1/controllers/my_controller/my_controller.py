@@ -9,7 +9,51 @@ def reset_home():
     robot_node.getField("translation").setSFVec3f([-.5, -.67, 0])
     robot_node.getField("rotation").setSFRotation([0, 0, 1, 0])  # No rotation
     
-robot = Supervisor()
+    
+def add_piece(x,y,z):
+    # Define the position where you want to create the object
+    #x, y, z = -0.256793, -0.452234, 0.0300022
+    
+    # VRML string for the red stick
+    red_stick_string = f'''DEF RED_STICK Solid {{
+      translation {x} {y} {z}
+      rotation -1.1787095735033249e-11 1 4.892081418304912e-11 4.693215650486149e-06
+      children [
+        Pose {{
+          rotation 1 0 0 3.14159
+          children [
+            DEF STICK_SHAPE Shape {{
+              appearance PBRAppearance {{
+                baseColor 1 0.155604 0.246125
+                roughness 0.783569247
+                metalness 0
+              }}
+              geometry Cylinder {{
+                height 0.06
+                radius 0.008
+              }}
+            }}
+          ]
+        }}
+      ]
+      name "red stick"
+      contactMaterial "stick"
+      boundingObject Box {{
+        size 0.013 0.013 0.06
+      }}
+      physics Physics {{
+        density 100
+      }}
+    }}'''
+    
+    # Get the root node and import the object
+    root_node = supervisor.getRoot()
+    children_field = root_node.getField('children')
+    children_field.importMFNodeFromString(-1, red_stick_string)
+    
+    
+    
+supervisor=robot = Supervisor()
 # Reset robot position and orientation
 
 
@@ -93,6 +137,9 @@ def open_grip():
     right_grip.setPosition(OPEN_GRIP)
         
 reset_home()
+
+add_piece(0.256793, -0.452234, 0)
+
 arm_up()
 open_grip()
 
