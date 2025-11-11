@@ -4,6 +4,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/k-team/khepera1/protos/Khepera1.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
 
 WorldInfo {
   info [
@@ -30,20 +31,21 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.2751955688184272 0.27619800890747775 0.9208594131452679 1.649537013153099
-  position 0.10269972807481942 -2.2150144616094076 1.368456531044486
+  orientation -0.4084925124028231 0.4140994637158579 0.8134220930495238 1.7624909613459883
+  position 0.0867477487543982 -1.5969587153192004 2.121138960336107
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
-  translation 0.120049 -0.0717654 -2.26951e-18
+  translation 0 0 -2.26951e-18
   rotation 0 1 0 4.692820414042842e-06
   floorSize 1.5 1.5
 }
 DEF OverheadCamera Robot {
-  translation 0 5 0
+  translation 0 0 2
+  rotation 0 -1 0 -1.57079
   children [
     Camera {
       rotation 1 0 0 -1.5708
@@ -52,81 +54,29 @@ DEF OverheadCamera Robot {
       width 1024
       height 1024
     }
+    Emitter {
+      channel 1
+    }
+    Receiver {
+      channel 1
+    }
   ]
   name "overhead_camera"
-  controller "<none>"
+  controller "overhead_camera_controller"
   supervisor TRUE
 }
-DEF RED_STICK Solid {
-  translation 0.705277 -0.658709 0.0300016
-  rotation -5.0548869313025024e-11 1 2.1493702435671437e-11 4.693215650709555e-06
-  children [
-    Pose {
-      rotation 1 0 0 3.14159
-      children [
-        DEF STICK_SHAPE Shape {
-          appearance PBRAppearance {
-            baseColor 1 0.155604 0.246125
-            roughness 0.783569247
-            metalness 0
-          }
-          geometry Cylinder {
-            height 0.06
-            radius 0.008
-          }
-        }
-      ]
-    }
-  ]
-  name "red stick"
-  contactMaterial "stick"
-  boundingObject Box {
-    size 0.013 0.013 0.06
-  }
-  physics Physics {
-    density 100
-  }
-}
-DEF BLUE_STICK Solid {
-  translation 0.762302 -0.653934 0.0300017
-  rotation 4.1708355665216624e-11 1 -8.442605070981112e-11 4.693215650684572e-06
-  children [
-    Pose {
-      rotation 1 0 0 3.14159
-      children [
-        DEF STICK_SHAPE Shape {
-          appearance PBRAppearance {
-            baseColor 0.0420081 0.0878462 0.932082
-            roughness 0.783569247
-            metalness 0
-          }
-          geometry Cylinder {
-            height 0.06
-            radius 0.008
-          }
-        }
-      ]
-    }
-  ]
-  name "blue stick"
-  contactMaterial "stick"
-  boundingObject Box {
-    size 0.013 0.013 0.06
-  }
-  physics Physics {
-    density 100
-  }
-}
 Khepera1 {
-  translation -0.4616415609697099 -0.6700400256397907 5.191143220175179e-06
-  rotation -0.000222869061935655 -0.9999813369933611 -0.006105406976710205 0.0702996846837154
+  hidden position_0_1 16.694018781232142
+  hidden position_0_2 23.272793487714825
+  translation -0.4818736098996861 -0.5995539650632781 0.00010246381127170488
+  rotation 0.035071512354614656 -0.06439260361219759 0.9973081678303864 0.9997198964061604
   name "khepera"
   controller "my_controller"
   supervisor TRUE
   extensionSlot [
     DEF LIFT_HINGE_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position -1.3962387632516746
+        position -1.3999999933131286
         axis 0 1 0
         anchor -0.01 0 0.022
       }
@@ -137,23 +87,23 @@ Khepera1 {
       ]
       endPoint Solid {
         translation -0.01 0 0.022
-        rotation 0.7057571865153869 -0.7057571861199302 -0.061754254282304875 3.018240371309631
+        rotation 0.7058148423134765 -0.7058148423134798 -0.06042198887822028 3.0208949952802926
         children [
           DEF RIGHT_GRIP SliderJoint {
             jointParameters JointParameters {
-              position 0.028892248459397345
+              position 0.004999999999974889
               axis 1 0 0
             }
             device [
               LinearMotor {
                 name "right grip"
                 maxVelocity 0.1
-                maxPosition 0.029
+                maxPosition 0.029000000000765386
                 maxForce 100
               }
             ]
             endPoint Solid {
-              translation 0.028892248459397345 0 -0.048
+              translation 0.004999999999974889 0 -0.048
               rotation 0 1 0 1.5708
               children [
                 Shape {
@@ -213,19 +163,19 @@ Khepera1 {
           }
           DEF LEFT_GRIP SliderJoint {
             jointParameters JointParameters {
-              position 0.028892248248836027
+              position 0.005000000000025068
               axis -1 0 0
             }
             device [
               LinearMotor {
                 name "left grip"
                 maxVelocity 0.1
-                maxPosition 0.029
+                maxPosition 0.02900000000091496
                 maxForce 100
               }
             ]
             endPoint Solid {
-              translation -0.028892248248836027 0 -0.048
+              translation -0.005000000000025068 0 -0.048
               rotation 0 1 0 -1.5708
               children [
                 Shape {
@@ -367,5 +317,29 @@ Khepera1 {
         mass 0.02
       }
     }
+    Emitter {
+      rotation -0.05037859281586198 0.05037871387365086 0.99745876234275 4.70984457625572
+      channel 1
+    }
+    Receiver {
+      rotation -0.06801484702383666 0.06801500910925684 -0.9953632196942941 1.5754439950300838
+      channel 1
+    }
   ]
+}
+Floor {
+  translation 0 0 0.0001
+  size 1 1
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "../textures/squares4x4.png"
+      ]
+    }
+    roughness 0.1
+    metalness 0
+    textureTransform TextureTransform {
+      scale 0.5 0.5
+    }
+  }
 }

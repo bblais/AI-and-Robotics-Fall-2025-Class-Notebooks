@@ -1,13 +1,16 @@
 from controller import Robot, Supervisor,Keyboard
+import struct
 
 OPEN_GRIP = 0.029
 CLOSED_GRIP = 0.005
 
 
+    
 robot = Robot()
 # Reset robot position and orientation
 # get the time step of the current world.
 timestep = int(robot.getBasicTimeStep())
+
 
 # Get number of devices
 num_devices = robot.getNumberOfDevices()
@@ -94,7 +97,7 @@ def take_picture():
     import os
     
     # Send request
-    emitter.send("TAKE_PICTURE1")
+    emitter.send("TAKE_PICTURE2")
     waiting_for_image = True
     
     # Wait for response
@@ -113,15 +116,14 @@ def take_picture():
 
     return im    
     
-        
-        
 
-player=1
+player=2
 
 
 receiver = robot.getDevice('receiver')
 receiver.setChannel(player)
 receiver.enable(timestep)
+
 
 
 emitter = robot.getDevice('emitter')
@@ -131,9 +133,7 @@ emitter.setChannel(player+10)  # Robot 1 uses channel 1 and 11
 im=take_picture()
 print(im.shape)
 
-#reset_home()
-
-print("robot 1 open grip")
+print("robot 2 open grip")
 
 # arm_up()
 open_grip()

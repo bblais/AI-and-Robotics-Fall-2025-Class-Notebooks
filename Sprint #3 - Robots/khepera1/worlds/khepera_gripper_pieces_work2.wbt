@@ -4,6 +4,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/k-team/khepera1/protos/Khepera1.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
 
 WorldInfo {
   info [
@@ -38,12 +39,13 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 RectangleArena {
-  translation 0.120049 -0.0717654 -2.26951e-18
+  translation 0 0 -2.26951e-18
   rotation 0 1 0 4.692820414042842e-06
   floorSize 1.5 1.5
 }
 DEF OverheadCamera Robot {
-  translation 0 5 0
+  translation 0.1 -0.1 1.9
+  rotation 0 -1 0 -1.56
   children [
     Camera {
       rotation 1 0 0 -1.5708
@@ -54,79 +56,19 @@ DEF OverheadCamera Robot {
     }
   ]
   name "overhead_camera"
-  controller "<none>"
+  controller "overhead_camera_controller"
   supervisor TRUE
 }
-DEF RED_STICK Solid {
-  translation 0.705277 -0.658709 0.0300016
-  rotation -5.0548869313025024e-11 1 2.1493702435671437e-11 4.693215650709555e-06
-  children [
-    Pose {
-      rotation 1 0 0 3.14159
-      children [
-        DEF STICK_SHAPE Shape {
-          appearance PBRAppearance {
-            baseColor 1 0.155604 0.246125
-            roughness 0.783569247
-            metalness 0
-          }
-          geometry Cylinder {
-            height 0.06
-            radius 0.008
-          }
-        }
-      ]
-    }
-  ]
-  name "red stick"
-  contactMaterial "stick"
-  boundingObject Box {
-    size 0.013 0.013 0.06
-  }
-  physics Physics {
-    density 100
-  }
-}
-DEF BLUE_STICK Solid {
-  translation 0.762302 -0.653934 0.0300017
-  rotation 4.1708355665216624e-11 1 -8.442605070981112e-11 4.693215650684572e-06
-  children [
-    Pose {
-      rotation 1 0 0 3.14159
-      children [
-        DEF STICK_SHAPE Shape {
-          appearance PBRAppearance {
-            baseColor 0.0420081 0.0878462 0.932082
-            roughness 0.783569247
-            metalness 0
-          }
-          geometry Cylinder {
-            height 0.06
-            radius 0.008
-          }
-        }
-      ]
-    }
-  ]
-  name "blue stick"
-  contactMaterial "stick"
-  boundingObject Box {
-    size 0.013 0.013 0.06
-  }
-  physics Physics {
-    density 100
-  }
-}
 Khepera1 {
-  translation -0.4616415609697099 -0.6700400256397907 5.191143220175179e-06
-  rotation -0.000222869061935655 -0.9999813369933611 -0.006105406976710205 0.0702996846837154
+  translation -0.2836587729299062 -0.5655700217163322 0.00010190065023294066
+  rotation 0.035042462913529235 -0.06440995527681911 0.9973080684794404 0.9988140577288217
   name "khepera"
   controller "my_controller"
   supervisor TRUE
   extensionSlot [
     DEF LIFT_HINGE_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position -1.3962387632516746
+        position 6.64885402899152e-08
         axis 0 1 0
         anchor -0.01 0 0.022
       }
@@ -137,23 +79,23 @@ Khepera1 {
       ]
       endPoint Solid {
         translation -0.01 0 0.022
-        rotation 0.7057571865153869 -0.7057571861199302 -0.061754254282304875 3.018240371309631
+        rotation 0.5773504489613392 -0.5773502928357691 -0.5773500657717047 2.094395129481873
         children [
           DEF RIGHT_GRIP SliderJoint {
             jointParameters JointParameters {
-              position 0.028892248459397345
+              position 0.029000000000765386
               axis 1 0 0
             }
             device [
               LinearMotor {
                 name "right grip"
                 maxVelocity 0.1
-                maxPosition 0.029
+                maxPosition 0.029000000000765386
                 maxForce 100
               }
             ]
             endPoint Solid {
-              translation 0.028892248459397345 0 -0.048
+              translation 0.029000000000765386 0 -0.048
               rotation 0 1 0 1.5708
               children [
                 Shape {
@@ -213,19 +155,19 @@ Khepera1 {
           }
           DEF LEFT_GRIP SliderJoint {
             jointParameters JointParameters {
-              position 0.028892248248836027
+              position 0.02900000000091496
               axis -1 0 0
             }
             device [
               LinearMotor {
                 name "left grip"
                 maxVelocity 0.1
-                maxPosition 0.029
+                maxPosition 0.02900000000091496
                 maxForce 100
               }
             ]
             endPoint Solid {
-              translation -0.028892248248836027 0 -0.048
+              translation -0.02900000000091496 0 -0.048
               rotation 0 1 0 -1.5708
               children [
                 Shape {
@@ -368,4 +310,163 @@ Khepera1 {
       }
     }
   ]
+}
+
+# Row 1 (y = -0.375)
+Floor {
+  translation -0.375 -0.375 0.0001
+  size 0.23 0.23
+  appearance PBRAppearance {
+    baseColor 0.5 0.5 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation -0.125 -0.375 0.0001
+  name "floor(1)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation 0.125 -0.375 0.0001
+  name "floor(2)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    baseColor 0.5 0.5 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation 0.375 -0.375 0.0001
+  name "floor(3)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    roughness 0.5
+    metalness 0
+  }
+}
+
+# Row 2 (y = -0.125)
+Floor {
+  translation -0.375 -0.125 0.0001
+  name "floor(4)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation -0.125 -0.125 0.0001
+  name "floor(5)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    baseColor 0.5 0.5 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation 0.125 -0.125 0.0001
+  name "floor(6)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation 0.375 -0.125 0.0001
+  name "floor(7)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    baseColor 0.5 0.5 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+
+# Row 3 (y = 0.125)
+Floor {
+  translation -0.375 0.125 0.0001
+  name "floor(8)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    baseColor 0.5 0.5 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation -0.125 0.125 0.0001
+  name "floor(9)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation 0.125 0.125 0.0001
+  name "floor(10)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    baseColor 0.5 0.5 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation 0.375 0.125 0.0001
+  name "floor(11)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    roughness 0.5
+    metalness 0
+  }
+}
+
+# Row 4 (y = 0.375)
+Floor {
+  translation -0.375 0.375 0.0001
+  name "floor(12)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation -0.125 0.375 0.0001
+  name "floor(13)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    baseColor 0.5 0.5 0.5
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation 0.125 0.375 0.0001
+  name "floor(14)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    roughness 0.5
+    metalness 0
+  }
+}
+Floor {
+  translation 0.375 0.375 0.0001
+  name "floor(15)"
+  size 0.23 0.23
+  appearance PBRAppearance {
+    baseColor 0.5 0.5 0.5
+    roughness 0.5
+    metalness 0
+  }
 }
