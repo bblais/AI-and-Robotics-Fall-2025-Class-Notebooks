@@ -7,8 +7,9 @@ def initial_state():
 
     state[0]=1
     state[1]=0
-    state[2]=1
+    state[2]=0
     state[3]=1
+    state[5]=1
 
     state[12]=2
     state[13]=2

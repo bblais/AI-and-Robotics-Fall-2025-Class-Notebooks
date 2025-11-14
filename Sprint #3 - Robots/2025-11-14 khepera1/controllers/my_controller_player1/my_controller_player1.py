@@ -124,8 +124,6 @@ receiver = robot.getDevice('receiver')
 receiver.setChannel(player)
 receiver.enable(timestep)
 
-
-
 emitter = robot.getDevice('emitter')
 emitter.setChannel(player+10)  # Robot 1 uses channel 1 and 11
 

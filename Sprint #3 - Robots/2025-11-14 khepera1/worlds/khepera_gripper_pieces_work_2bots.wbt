@@ -78,8 +78,8 @@ DEF OverheadCamera Robot {
 Khepera1 {
   translation -0.4818736099196599 -0.599553965075449 0.00010246378181508198
   rotation 0.035070953861541264 -0.0643929048891237 0.997308168017881 0.999719917730578
-  name "player 1"
-  controller "my_controller"
+  name "player 2"
+  controller "my_controller_player2"
   extensionSlot [
     DEF LIFT_HINGE_JOINT HingeJoint {
       jointParameters HingeJointParameters {
@@ -326,19 +326,19 @@ Khepera1 {
     }
     Emitter {
       rotation -0.05037859281586198 0.05037871387365086 0.99745876234275 4.70984457625572
-      channel 11
+      channel 12
     }
     Receiver {
       rotation -0.06801484702383666 0.06801500910925684 -0.9953632196942941 1.5754439950300838
-      channel 1
+      channel 2
     }
   ]
 }
 Khepera1 {
   translation 0.628047 0.612167 0.000102464
   rotation 0.035141165048119656 0.013835028030463875 0.999286590782873 -2.3919380110653847
-  name "player 2"
-  controller "my_controller2"
+  name "player 1"
+  controller "my_controller_player1"
   extensionSlot [
     DEF LIFT_HINGE_JOINT HingeJoint {
       jointParameters HingeJointParameters {
@@ -585,11 +585,11 @@ Khepera1 {
     }
     Emitter {
       rotation -0.05037859281586198 0.05037871387365086 0.99745876234275 4.70984457625572
-      channel 12
+      channel 11
     }
     Receiver {
       rotation -0.06801484702383666 0.06801500910925684 -0.9953632196942941 1.5754439950300838
-      channel 2
+      channel 1
     }
   ]
 }
@@ -599,7 +599,7 @@ Floor {
   appearance PBRAppearance {
     baseColorMap ImageTexture {
       url [
-        "../textures/squares3x4.png"
+        "../textures/squares4x4.png"
       ]
     }
     roughness 0.1
