@@ -140,15 +140,15 @@ open_grip()
 
 while robot.step(timestep) != -1:
 
-    forward(2000) # ms
+    forward(2300) # ms
     
     arm_down()
 
     stop(500) # ms
 
 
-    left(800) # ms
-    forward(2500) # ms
+    left(900) # ms
+    forward(2800) # ms
 
     close_grip()
     stop(200) # ms

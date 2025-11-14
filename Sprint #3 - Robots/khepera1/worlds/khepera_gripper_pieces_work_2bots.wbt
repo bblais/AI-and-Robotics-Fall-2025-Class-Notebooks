@@ -94,7 +94,7 @@ Khepera1 {
       ]
       endPoint Solid {
         translation -0.01 0 0.022
-        rotation 0.7058148422121028 -0.7058148422121053 -0.060421991246612516 3.0208949905607376
+        rotation 0.7058148422121026 -0.7058148422121052 -0.0604219912466125 3.0208949905607376
         children [
           DEF RIGHT_GRIP SliderJoint {
             jointParameters JointParameters {
@@ -599,7 +599,7 @@ Floor {
   appearance PBRAppearance {
     baseColorMap ImageTexture {
       url [
-        "../textures/squares4x4.png"
+        "../textures/squares5x5.png"
       ]
     }
     roughness 0.1

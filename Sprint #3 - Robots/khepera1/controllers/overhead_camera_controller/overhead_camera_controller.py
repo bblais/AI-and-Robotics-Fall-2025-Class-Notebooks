@@ -2,16 +2,12 @@ from controller import Robot, Camera, Emitter, Receiver, Keyboard,Supervisor
 from datetime import datetime
 import os
 from numpy import pi
-
-
 from Game import *
 
-state=Board(4,4)
-for i in range(8):
-    state[i]=1
-    
-for i in range(8,16):
-    state[i]=2
+sys.path.insert(0, os.path.abspath('../../game/'))
+print(sys.path)
+from my_game import *
+state=initial_state()
 
 def reset_home():
     robot_node = robot.getSelf()
@@ -152,13 +148,37 @@ if arena is None:
 
 floor_size_field = arena.getField("floorSize")
         
-#num_rows,num_columns = state.shape
-#floor_size_field.setSFVec2f([(num_columns+2)*0.25, 
-#                                (num_rows+2)*0.25])
+num_rows,num_columns = state.shape
+floor_size_field.setSFVec2f([(num_columns+2)*0.25, 
+                               (num_rows+2)*0.25])
+
+num_rows,num_columns = state.shape
+floor_size_field.setSFVec2f([(4+2)*0.25, 
+                               (4+2)*0.25])
 
 
-for r in range(4):
-    for c in range(4):
+floor=None
+for i in range(children_field.getCount()):
+    node = children_field.getMFNode(i)
+    if node.getTypeName() == "Floor":
+        floor = node
+        break
+
+
+# Navigate to the ImageTexture url field
+appearance = floor.getField('appearance').getSFNode()
+base_color_map = appearance.getField('baseColorMap').getSFNode()
+url_field = base_color_map.getField('url')
+
+# Change the texture URL
+R,C=state.shape
+texture_fname=f"../textures/squares{R}x{C}.png"
+if not os.path.exists("../"+texture_fname):
+    texture_fname=f"../textures/blank.png"
+url_field.setMFString(0, texture_fname)
+
+for r in range(state.shape[0]):
+    for c in range(state.shape[1]):
         x,y=row_col_to_translation(r,c)
         add_piece(x,y,state[r,c])
 
