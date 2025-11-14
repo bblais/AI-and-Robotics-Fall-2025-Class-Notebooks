@@ -5,7 +5,7 @@ sceneTreePerspectives: 000000ff00000001000000030000001e000002ec000000fa010000000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 2 "controllers/debug_messages/debug_messages.py" "controllers/supervisor_debug_messages/supervisor_debug_messages.py" "controllers/debug_messages2/debug_messages2.py"
+textFiles: 2 "../../Documents/Git/AI-and-Robotics-Fall-2025-Class-Notebooks/Sprint #3 - Robots/khepera1/controllers/debug_messages/debug_messages.py" "../../Documents/Git/AI-and-Robotics-Fall-2025-Class-Notebooks/Sprint #3 - Robots/khepera1/controllers/supervisor_debug_messages/supervisor_debug_messages.py" "../../Documents/Git/AI-and-Robotics-Fall-2025-Class-Notebooks/Sprint #3 - Robots/khepera1/controllers/debug_messages2/debug_messages2.py"
 consoles: Console:All:All
 renderingDevicePerspectives: khepera(1):camera;1;1;0;0
 renderingDevicePerspectives: khepera:camera;1;1;0;0
