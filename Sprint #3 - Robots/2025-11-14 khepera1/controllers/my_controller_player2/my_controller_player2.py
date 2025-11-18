@@ -1,4 +1,10 @@
 from controller import Robot, Supervisor,Keyboard
+from Game import *
+import sys
+sys.path.insert(0, os.path.abspath('../../game/'))
+print(sys.path)
+from my_game import *
+import ast
 
 OPEN_GRIP = 0.029
 CLOSED_GRIP = 0.005
@@ -94,7 +100,7 @@ def take_picture():
     import os
     
     # Send request
-    emitter.send("TAKE_PICTURE1")
+    emitter.send("TAKE_PICTURE2")
     waiting_for_image = True
     
     # Wait for response
@@ -113,8 +119,24 @@ def take_picture():
 
     return im    
     
+def wait_for_turn():
+    emitter.send("WAITING FOR TURN")
+    waiting_for_turn = True
+    state=initial_state()
+    while waiting_for_turn:
+        if robot.step(timestep) == -1:
+            return None
+        if receiver.getQueueLength() > 0:
+            waiting_for_turn=False
+            repr_string=receiver.getString()
+            print("repr_string:",repr_string)
+            #result = ast.literal_eval(repr_string)
+            #state.board=result
+            receiver.nextPacket()
         
+    return state
         
+
 
 player=2
 
@@ -127,10 +149,6 @@ receiver.enable(timestep)
 emitter = robot.getDevice('emitter')
 emitter.setChannel(player+10)  # Robot 1 uses channel 1 and 11
 
-
-im=take_picture()
-print(im.shape)
-
 #reset_home()
 
 print("robot 2 open grip")
@@ -139,6 +157,11 @@ print("robot 2 open grip")
 open_grip()
 
 while robot.step(timestep) != -1:
+
+    wait_for_turn()
+    im=take_picture()
+    print(im.shape)
+
 
     forward(2300) # ms
     
@@ -156,9 +179,7 @@ while robot.step(timestep) != -1:
     backward(2000)
     
     stop()
-    im=take_picture()
-    print(im.shape)
 
-    break
+    
     
 

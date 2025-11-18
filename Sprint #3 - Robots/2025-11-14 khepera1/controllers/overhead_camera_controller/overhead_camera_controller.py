@@ -235,7 +235,8 @@ for r in range(state.shape[0]):
         add_piece(x,y,state[r,c])
 
 
-
+current_player=1
+first_turn=True
 
 while robot.step(timestep) != -1:
 
@@ -246,7 +247,14 @@ while robot.step(timestep) != -1:
         message = receiver1.getString()
         receiver1.nextPacket()
         
-        if "TAKE_PICTURE" in message:
+        if "TURN" in message and current_player==1:
+            if first_turn:
+                emitter1.send("GO")
+                first_turn=False
+            else:
+                emitter2.send("GO")
+                current_player=2
+        elif "TAKE_PICTURE" in message:
             print("in overhead1:",message)
             
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
@@ -268,7 +276,10 @@ while robot.step(timestep) != -1:
         receiver2.nextPacket()
         
         print("here2")
-        if "TAKE_PICTURE" in message:
+        if "TURN" in message and current_player==2:
+            emitter1.send("GO")
+            current_player=1
+        elif "TAKE_PICTURE" in message:
             print("in overhead2:",message)
 
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
