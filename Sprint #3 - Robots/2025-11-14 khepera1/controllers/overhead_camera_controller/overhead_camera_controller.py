@@ -4,10 +4,16 @@ import os
 from numpy import pi
 from Game import *
 
+position_variation=0.03
+position_variation=0.00
+
+
 sys.path.insert(0, os.path.abspath('../../game/'))
 print(sys.path)
 from my_game import *
 state=initial_state()
+
+from numpy.random import rand
 
 def reset_home():
     robot_node = robot.getSelf()
@@ -25,6 +31,9 @@ def add_piece(x,y,p):
     # Define the position where you want to create the object
     #x, y, z = -0.256793, -0.452234, 0.0300022
     
+    x+=(2*rand()-1)*position_variation
+    x+=(2*rand()-1)*position_variation
+
     if p==0:
         return
     elif p==1:
@@ -249,10 +258,10 @@ while robot.step(timestep) != -1:
         
         if "TURN" in message and current_player==1:
             if first_turn:
-                emitter1.send("GO")
+                emitter1.send(state.board.__repr__())
                 first_turn=False
             else:
-                emitter2.send("GO")
+                emitter2.send(state.board.__repr__())
                 current_player=2
         elif "TAKE_PICTURE" in message:
             print("in overhead1:",message)
@@ -277,7 +286,7 @@ while robot.step(timestep) != -1:
         
         print("here2")
         if "TURN" in message and current_player==2:
-            emitter1.send("GO")
+            emitter1.send(state.board.__repr__())
             current_player=1
         elif "TAKE_PICTURE" in message:
             print("in overhead2:",message)
