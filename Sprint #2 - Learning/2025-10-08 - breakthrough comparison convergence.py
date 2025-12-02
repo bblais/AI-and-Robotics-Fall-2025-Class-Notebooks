@@ -119,9 +119,16 @@ except KeyboardInterrupt:
     pass
 
 
+# In[8]:
+
+
+SaveTable(agent1.T,'breakthrough_4x4_skittles_agent1_table.json')
+SaveTable(agent2.T,'breakthrough_4x4_skittles_agent2_table.json')
+
+
 # # Q learning
 
-# In[14]:
+# In[ ]:
 
 
 agent1=Agent(Q_move)
@@ -149,7 +156,7 @@ agent2.ϵ=0.1  # random games sometimes for exploration
 
 
 
-# In[15]:
+# In[ ]:
 
 
 iteration_count=0
@@ -165,7 +172,7 @@ number_of_iterations=[]
 
 
 
-# In[16]:
+# In[ ]:
 
 
 epoch_number=2000  # play 200 games, learning, and then test
@@ -176,20 +183,20 @@ total_number_of_games=epoch_number*N_train
 total_number_of_games
 
 
-# In[17]:
+# In[ ]:
 
 
 from tqdm.notebook import tqdm
 from IPython.display import display,clear_output
 
 
-# In[18]:
+# In[ ]:
 
 
 from matplotlib import pyplot as plt
 
 
-# In[19]:
+# In[ ]:
 
 
 board_size=4

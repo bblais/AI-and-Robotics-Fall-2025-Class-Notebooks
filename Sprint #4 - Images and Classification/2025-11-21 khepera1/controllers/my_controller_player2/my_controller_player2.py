@@ -119,7 +119,7 @@ def take_picture():
 
     return im    
     
-def wait_for_turn():
+def wait_for_turn(move):
     emitter.send("WAITING FOR TURN")
     waiting_for_turn = True
     state=initial_state()
@@ -130,8 +130,8 @@ def wait_for_turn():
             waiting_for_turn=False
             repr_string=receiver.getString()
             print("repr_string:",repr_string)
-            #result = ast.literal_eval(repr_string)
-            #state.board=result
+            result = ast.literal_eval(repr_string)
+            state.board=result
             receiver.nextPacket()
         
     return state
@@ -155,10 +155,22 @@ print("robot 2 open grip")
 
 # arm_up()
 open_grip()
-
+T=LoadTable('breakthrough_4x4_skittles_agent2_table.json')
+move
 while robot.step(timestep) != -1:
 
-    wait_for_turn()
+    result=wait_for_turn(move)
+    print("result 2: ",result)
+
+    state=result
+    if not state in T:
+        print("state not in table")
+        move=random_move(state,player)
+    else:
+        move=top_choice(T[state])
+
+
+
     im=take_picture()
     print(im.shape)
 
