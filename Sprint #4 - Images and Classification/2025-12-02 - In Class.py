@@ -40,6 +40,12 @@ im=images.data[1500]
 im.shape
 
 
+# In[7]:
+
+
+load_csv('data/seeds.csv')
+
+
 # In[ ]:
 
 
