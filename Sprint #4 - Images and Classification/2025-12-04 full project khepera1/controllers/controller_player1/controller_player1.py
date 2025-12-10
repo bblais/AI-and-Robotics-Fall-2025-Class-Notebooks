@@ -115,7 +115,8 @@ open_grip()
 
 def make_move(move,player):
     # do the robot stuff here
-    pass
+    forward(5)
+    stop()
 
 
 

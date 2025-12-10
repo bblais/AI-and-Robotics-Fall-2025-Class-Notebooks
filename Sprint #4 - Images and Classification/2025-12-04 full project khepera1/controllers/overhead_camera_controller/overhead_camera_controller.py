@@ -103,7 +103,7 @@ def add_piece(x,y,p):
                 radius 0.016
       }}
       physics Physics {{
-        density 2
+        density 20
       }}
     }}'''
     
